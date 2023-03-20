@@ -1,0 +1,10 @@
+version: '0.1'
+services:
+  app:
+    build: ./app
+    ports:
+      - "5000:5000"
+    volumes:
+      - birthdays_data:/data
+volumes:
+  birthdays_data:
