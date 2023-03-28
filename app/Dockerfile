@@ -12,6 +12,3 @@ RUN mkdir /data && \
     chown -R 1001:1001 /data && \
     sqlite3 /data/birthdays.db && \
     sqlite3 /data/birthdays.db < create_table.sql
-
-ENTRYPOINT ["python3"]
-CMD ["./app.py"]

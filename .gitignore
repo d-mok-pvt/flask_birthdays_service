@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+*.log
+*.sqlite
+.cache/
+.coverage
+.pytest_cache/
+.hypothesis/

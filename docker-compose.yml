@@ -6,5 +6,19 @@ services:
       - "5000:5000"
     volumes:
       - birthdays_data:/data
+    command: python ./app.py
+    networks: 
+      - my_network
+  test:
+    build: ./tests
+    depends_on:
+      - app
+    command: pytest
+    networks:
+      - my_network
+
 volumes:
   birthdays_data:
+
+networks:
+  my_network:
