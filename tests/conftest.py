@@ -2,8 +2,16 @@ import pytest
 import requests
 from tests.test_config import API_URL
 import logging
+from tests.test_data_preparation import prepare_database
 
 logging.basicConfig(level=logging.INFO)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def setup_database(prepare_database):
+    # This fixture will automatically run the `prepare_database` fixture
+    # creates test data before any tests are run. And clear test data after all tests are finished.
+    pass
 
 
 @pytest.fixture()
@@ -16,7 +24,7 @@ def api_client():
         logging.info(
             f"Making {method} request to {url} with body: {kwargs.get('json')}")
         response = requests.request(method, url, headers=headers, **kwargs)
-        logging.debug(
+        logging.info(
             f"Received response with status code: {response.status_code}, body: {response.content}")
         return response
 

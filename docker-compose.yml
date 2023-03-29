@@ -13,6 +13,8 @@ services:
     build: ./tests
     depends_on:
       - app
+    volumes:
+      - birthdays_data:/data
     command: pytest
     networks:
       - my_network
