@@ -9,8 +9,8 @@ Before you can use this project, you will need to have Docker and Docker Compose
 ## Usage
 
 ### By default, running service endpoints are: 
-*WEB UI*: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) \
-*SWAGGER UI*: [http://127.0.0.1:5000/swagger/#/](http://127.0.0.1:5000/swagger/#/)
+*WEB UI*: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000/](http://localhost:5000/) \
+*SWAGGER UI*: [http://127.0.0.1:5000/swagger/](http://127.0.0.1:5000/swagger/) or [http://localhost:5000/swagger/](http://localhost:5000/swagger/)
 
 ### Build or Rebuild Docker Compose Images
 
@@ -31,11 +31,19 @@ This command will create and start containers for all services defined in your `
 
 ### Run Tests Image
 
-To run the tests image with enabled logging, run the following command:
+To create and run container from tests image with enabled logging, run the following command:
 ```
-docker run --network=birthdays_service_my_network --name test_with_logging -d birthdays_service-test pytest -s
+docker-compose run --rm --name test_with_logging test pytest -s
 ```
-
+The container will be deleted after the run because of `--rm`. Additionally, here is an option to use the docker start command of an existing container:
+```
+docker start test_with_logging
+```
+The `-d` parameter can be used for the detached (silent) mode. Be aware that the created test container stops working when the network is once put down. It will be deleted with:
+```
+docker container rm --force container_name
+```
+and will be created again with `docker-compose` run without `--rm`.
 
 ### Get a List of Docker Containers
 
@@ -58,9 +66,9 @@ docker start birthdays_service-test-1
 
 To stop and remove all containers, networks, and volumes created by Docker Compose, run the following command:
 ```
-docker-compose down
-
+docker-compose down 
 ```
+The `--rmi all` flag can be used to remove all containers, which also created without Docker Compose
 
 
 ### Clear Unused Docker Artifacts
