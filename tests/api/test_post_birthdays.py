@@ -18,3 +18,5 @@ def test_post_birthdays(api_client, check_successful_response):
     check_successful_response(get_single_response)
     assert get_single_response.json()["data"][0]["name"] == data["name"]
     assert get_single_response.json()["data"][0]["date"] == data["date"]
+
+    api_client("DELETE", endpoint=post_response.json()["data"]["uuid"])
