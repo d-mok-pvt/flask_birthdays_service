@@ -1,4 +1,5 @@
 from faker import Faker
+import random
 
 
 def generate_name() -> str:
@@ -17,3 +18,10 @@ def generate_uuid() -> str:
     """Generate a random UUID using the Faker library."""
     fake = Faker()
     return fake.uuid4()
+
+
+def get_random_birthday(api_client, check_successful_response):
+    get_response = api_client("GET")
+    check_successful_response(get_response)
+    birthdays = get_response.json()["data"]
+    return random.choice(birthdays)

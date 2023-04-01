@@ -6,9 +6,16 @@ from logging.handlers import RotatingFileHandler
 
 from flask import (Flask, jsonify, redirect, render_template, request)
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_cors import CORS
+from forms import AddBirthdayForm, UpdateBirthdayForm
+
+from werkzeug.datastructures import MultiDict
 
 # Creating the flask application
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'mysecretkey'
+app.config['WTF_CSRF_ENABLED'] = False
+CORS(app)
 
 log_formatter = logging.Formatter(
     '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
@@ -128,6 +135,10 @@ def create_json_error_response(message, status_code):
     return jsonify({"message": message, "status": "error"}), status_code
 
 
+def create_json_error_response_with_data(message, data, status_code):
+    return jsonify({"message": message, "data": data, "status": "error"}), status_code
+
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -158,25 +169,36 @@ def get_or_post_birthdays():
             return redirect("/")
         elif content_type == 'application/json':
             json_data = request.json
-            data = json_data["name"], json_data["date"]
-            uuid = insert_birthdays_db(data)
-            json_data['uuid'] = uuid
-            return create_json_success_response(json_data, 201)
+            form_data = MultiDict(json_data)
+            form = AddBirthdayForm(form_data)
+            if form.validate():
+                data = json_data["name"], json_data["date"]
+                uuid = insert_birthdays_db(data)
+                json_data['uuid'] = uuid
+                return create_json_success_response(json_data, 201)
+            else:
+                return create_json_error_response_with_data("Invalid request parameters", form.errors, 400)
 
 
 @app.route("/api/birthdays/<uuid>", methods=["GET", "PUT", "DELETE"])
 def update_or_delete_birthdays(uuid):
     uuid_exists = check_existance_birthdays_db(uuid)
-    if request.method == "GET":
-        birthday = get_single_birthdays_db(uuid)
-        return create_json_success_response(birthday, 200)
-    elif uuid_exists:
-        if request.method == "PUT":
-            jsonData = request.json
-            name = jsonData.get('name')
-            date = jsonData.get('date')
-            put_birthdays_db(uuid, name, date)
-            return create_json_success_response(jsonData, 200)
+    if uuid_exists:
+        if request.method == "GET":
+            birthday = get_single_birthdays_db(uuid)[0]
+            return create_json_success_response(birthday, 200)
+        elif request.method == "PUT":
+            json_data = request.json
+            form_data = MultiDict(json_data)
+            form = UpdateBirthdayForm(form_data)
+            if form.validate():
+                name = json_data.get('name')
+                date = json_data.get('date')
+                put_birthdays_db(uuid, name, date)
+                return create_json_success_response(json_data, 200)
+            else:
+                return create_json_error_response_with_data(
+                    "Invalid request parameters", "At least one of 'name' or 'date' is required.", 400)
         elif request.method == "DELETE":
             del_birthdays_db(uuid)
             return create_json_success_response({'uuid': uuid}, 200)
