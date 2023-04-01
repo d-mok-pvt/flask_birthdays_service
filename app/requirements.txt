@@ -9,7 +9,7 @@ Jinja2==3.1.2
 MarkupSafe==2.1.2
 pytz==2022.7.1
 six==1.16.0
-Werkzeug==2.2.2
+Werkzeug==2.2.3
 flask-cors
 Flask-WTF
 WTForms
