@@ -1,0 +1,192 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Birthday management API
+servers:
+  - url: http://localhost:5000/
+    description: Development server
+paths:
+  /api/birthdays:
+    get:
+      summary: Retrieve a list of all birthdays
+      responses:
+        '200':
+          $ref: "#/components/responses/BirthdaysListResponse"
+    post:
+      summary: Create a new birthday
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BirthdayCreateRequest"
+      responses:
+        '201':
+          $ref: "#/components/responses/BirthdayResponse"
+        '400':
+          $ref: "#/components/responses/BadRequestResponse"
+  /api/birthdays/{uuid}:
+    get:
+      summary: Get a birthday record by uuid
+      parameters:
+        - name: uuid
+          in: path
+          description: The ID of the birthday record to update
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          $ref: "#/components/responses/BirthdayResponse"
+        '404':
+          $ref: "#/components/responses/ResourceNotFoundResponse"
+    put:
+      summary: Updates a birthday record by uuid
+      parameters:
+        - name: uuid
+          in: path
+          description: The ID of the birthday record to update
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BirthdayUpdateRequest"
+      responses:
+        '200':
+          $ref: "#/components/responses/BirthdayResponse"
+        '404':
+          $ref: "#/components/responses/ResourceNotFoundResponse"
+        '400':
+          $ref: "#/components/responses/BadRequestResponse"
+    delete:
+      summary: Delete a birthday record by uuid
+      parameters:
+        - name: uuid
+          in: path
+          description: The ID of the birthday record to delete
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          $ref: "#/components/responses/BirthdayResponse"
+        '404':
+          $ref: "#/components/responses/ResourceNotFoundResponse"
+components:
+  schemas:
+    BirthdayResponseObject:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        name:
+          type: string
+        uuid:
+          type: string
+          format: uuid
+      required: 
+        - date
+        - name
+        - uuid
+    BirthdayCreateRequest:
+      type: object
+      required:
+        - date
+        - name
+      properties:
+        date:
+          type: string
+          format: date
+        name:
+          type: string
+    BirthdayUpdateRequest:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        name:
+          type: string
+  responses:
+    BirthdayResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: "#/components/schemas/BirthdayResponseObject"
+              status:
+                type: string
+                enum: [success]
+            required:
+              - data
+              - status
+    BirthdaysListResponse:
+      description: A list of birthdays
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BirthdayResponseObject"
+              status:
+                type: string
+                enum: [success]
+            required:
+              - data
+              - status
+    ResourceNotFoundResponse:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: UUID not found
+              status:
+                type: string
+                enum: [error]
+    BadRequestResponse:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data: 
+                oneOf:
+                  - type: object
+                    properties:
+                      date:
+                        type: array
+                        items:
+                          type: string
+                          example: This field is required.
+                      name:
+                        type: array
+                        items:
+                          type: string
+                          example: This field is required.
+                  - type: string
+                    example: At least one of 'name' or 'date' is required.
+              message:
+                type: string
+                example: invalid request parameters
+              status:
+                type: string
+                enum: [error]

@@ -83,3 +83,7 @@ docker system prune
 ```
 
 These commands will clear unused Docker containers, images, volumes, and system artifacts respectively.
+
+### Using swagger-editor to modify api documentation
+
+To get and run swagger-editor with docker, follow [instructions](https://github.com/swagger-api/swagger-editor#running-the-image-from-dockerhub)

@@ -29,7 +29,7 @@ db_path = os.path.join(app_dir, '..', 'data', 'birthdays.db')
 DATABASE = db_path
 
 SWAGGER_URL = '/swagger'
-API_URL = '/static/swagger.json'
+API_URL = '/static/swagger.yaml'
 SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
