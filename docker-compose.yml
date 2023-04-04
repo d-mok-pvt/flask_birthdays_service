@@ -15,12 +15,25 @@ services:
       - app
     volumes:
       - birthdays_data:/data
-    command: pytest
+      - test-results:/tests/test-results
+    command: sh -c "rm -rf /tests/test-results/* && pytest --alluredir=/tests/test-results "
+    networks:
+      - my_network
+  allure_test_report:
+    build: ./tests/allure-reporter
+    depends_on:
+      - test
+    volumes:
+      - test-results:/app/allure-results
+    command: sh -c "allure generate /app/allure-results && allure serve /app/allure-results --port 80 --host 0.0.0.0"
+    ports:
+      - "8000:80"
     networks:
       - my_network
 
 volumes:
   birthdays_data:
+  test-results:
 
 networks:
   my_network:

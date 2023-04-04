@@ -1,3 +1,4 @@
 pytest
 Faker
 requests
+allure-pytest
