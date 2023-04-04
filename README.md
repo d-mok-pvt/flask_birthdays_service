@@ -10,7 +10,8 @@ Before you can use this project, you will need to have Docker and Docker Compose
 
 ### By default, running service endpoints are: 
 *WEB UI*: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000/](http://localhost:5000/) \
-*SWAGGER UI*: [http://127.0.0.1:5000/swagger/](http://127.0.0.1:5000/swagger/) or [http://localhost:5000/swagger/](http://localhost:5000/swagger/)
+*SWAGGER UI*: [http://127.0.0.1:5000/swagger/](http://127.0.0.1:5000/swagger/) or [http://localhost:5000/swagger/](http://localhost:5000/swagger/) \
+*Allure Report*: [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/)
 
 ### Build or Rebuild Docker Compose Images
 
@@ -52,7 +53,6 @@ To get a list of Docker containers, run:
 ```
 docker ps -a
 ```
-
 
 ### Start an Existing Container by Name or ID
 
