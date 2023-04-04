@@ -14,12 +14,12 @@ def test_post_birthdays(api_client, check_successful_response):
     assert post_response.json()["data"]["uuid"] is not None
 
     get_single_response = api_client(
-        "GET", endpoint=post_response.json()["data"]["uuid"])
+        "GET", path_addon=post_response.json()["data"]["uuid"])
     check_successful_response(get_single_response)
     assert get_single_response.json()["data"]["name"] == data["name"]
     assert get_single_response.json()["data"]["date"] == data["date"]
 
-    api_client("DELETE", endpoint=post_response.json()["data"]["uuid"])
+    api_client("DELETE", path_addon=post_response.json()["data"]["uuid"])
 
 
 def test_post_birthdays_without_name(api_client, check_error_response):

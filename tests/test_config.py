@@ -7,5 +7,6 @@ SWAGGER_JSON_URL = FRONT_URL + '/static/swagger.json'
 
 # DATABASE = "birthdays.db"
 app_dir = os.path.dirname(__file__)
+print(app_dir)
 db_path = os.path.join(app_dir, '..', 'data', 'birthdays.db')
 DATABASE = db_path

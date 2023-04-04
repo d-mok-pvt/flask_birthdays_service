@@ -3,6 +3,9 @@ import requests
 from tests.test_config import API_URL
 import logging
 from tests.test_data_preparation import prepare_database
+import allure
+import json
+import requests_to_curl
 
 logging.basicConfig(level=logging.INFO)
 
@@ -16,16 +19,21 @@ def setup_database(prepare_database):
 
 @pytest.fixture()
 def api_client():
-    base_url = API_URL
     headers = {"Content-Type": "application/json"}
 
-    def _send_request(method, endpoint=None, **kwargs):
-        url = base_url if endpoint is None else f"{base_url}/{endpoint}"
-        logging.info(
-            f"Making {method} request to {url} with body: {kwargs.get('json')}")
+    @allure.step("{method} request to {base_url}")
+    def _send_request(method, base_url=API_URL, path_addon=None, **kwargs):
+        url = base_url if path_addon is None else f"{base_url}/{path_addon}"
+
         response = requests.request(method, url, headers=headers, **kwargs)
-        logging.info(
-            f"Received response with status code: {response.status_code}, body: {response.content}")
+        curl_command = requests_to_curl.parse(response, return_it=True)
+        allure.attach(curl_command, "cURL",
+                      attachment_type=allure.attachment_type.TEXT)
+        allure.attach(json.dumps(dict(response.headers), indent=4),
+                      "Response headers", attachment_type=allure.attachment_type.JSON)
+        allure.attach(json.dumps(response.json(), indent=4),
+                      "Response body", attachment_type=allure.attachment_type.JSON)
+
         return response
 
     yield _send_request
