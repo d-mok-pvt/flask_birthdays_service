@@ -1,0 +1,28 @@
+version: '0.1'
+services:
+  jmeter_perfomance_test:
+    build: ./jmeter_runner
+    restart: "no"
+    volumes:
+      - jmeter_scripts:/jmeter_scripts
+      - birthdays_service_birthdays_data:/birthdays_data
+    command: sh -c "
+      rm -rf /jmeter_run_data/* && rm -rf /jmeter_report/* 
+      && jmeter -n -t /jmeter_scripts/birthdays_load.jmx -l ./jmeter_run_data/results.jtl -j ./jmeter_run_data/jmeter.log -e -o ./jmeter_report
+      && sqlite3 ./birthdays_data/birthdays.db < clear_table.sql 
+      && busybox-extras httpd -f -h /jmeter_report -p 3389
+      "
+    networks:
+      - birthdays_service_my_network
+    ports:
+      - "3389:3389"
+
+volumes:
+  birthdays_service_birthdays_data:
+    external: true
+  jmeter_scripts:
+
+
+networks:
+  birthdays_service_my_network:
+    external: true

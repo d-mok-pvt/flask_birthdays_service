@@ -9,9 +9,10 @@ Before you can use this project, you will need to have Docker and Docker Compose
 ## Usage
 
 ### By default, running service endpoints are: 
-*WEB UI*: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000/](http://localhost:5000/) \
-*SWAGGER UI*: [http://127.0.0.1:5000/swagger/](http://127.0.0.1:5000/swagger/) or [http://localhost:5000/swagger/](http://localhost:5000/swagger/) \
-*Allure Report*: [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/)
+*WEB UI*: [http://localhost:5000/](http://localhost:5000/) \
+*SWAGGER UI*: [http://localhost:5000/swagger/](http://localhost:5000/swagger/) \
+*Allure Report*: [http://localhost:8000/](http://localhost:8000/)
+*Jmeter Report*: [http://localhost:3389/](http://localhost:3389/)
 
 ### Build or Rebuild Docker Compose Images
 
@@ -29,6 +30,11 @@ docker-compose up -d
 ```
 
 This command will create and start containers for all services defined in your `docker-compose.yml` file. It will also create a network for your services to communicate with each other.
+
+### Restart All Containers Inside Docker-Compose
+```
+docker-compose down && docker-compose up --build -d
+```
 
 ### Run Tests Image
 
@@ -87,3 +93,12 @@ These commands will clear unused Docker containers, images, volumes, and system 
 ### Using swagger-editor to modify api documentation
 
 To get and run swagger-editor with docker, follow [instructions](https://github.com/swagger-api/swagger-editor#running-the-image-from-dockerhub)
+
+### Running JMeter 
+To run jmeter- use docker-compose inside directory jmeter_birthdays_service.
+jmeter test plan placed in directory Jmeter_scripts
+Jmeter_Report should be available at [http://localhost:3389/](http://localhost:3389/)
+Volume should be deleted for jmeter to get new version of test plan after editing. Command for restart of tests with volume deletion:
+```
+docker-compose down --volumes  && docker-compose up --build -d
+```
