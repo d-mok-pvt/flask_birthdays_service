@@ -20,7 +20,7 @@ services:
     networks:
       - my_network
   allure_test_report:
-    build: ./tests/allure-reporter
+    build: ./allure-reporter
     depends_on:
       - test
     volumes:
@@ -37,3 +37,4 @@ volumes:
 
 networks:
   my_network:
+    driver: bridge
