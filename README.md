@@ -95,9 +95,9 @@ These commands will clear unused Docker containers, images, volumes, and system 
 To get and run swagger-editor with docker, follow [instructions](https://github.com/swagger-api/swagger-editor#running-the-image-from-dockerhub)
 
 ### Running JMeter 
-To run jmeter- use docker-compose inside directory jmeter_birthdays_service.
-jmeter test plan placed in directory Jmeter_scripts
-Jmeter_Report should be available at [http://localhost:3389/](http://localhost:3389/)
+To run jmeter- use docker-compose inside directory [jmeter_birthdays_service](https://github.com/pics23/flask_birthdays_service/tree/main/jmeter_birthdays_service). <br />
+jmeter test plan placed in directory [Jmeter_scripts](https://github.com/pics23/flask_birthdays_service/tree/main/jmeter_birthdays_service/jmeter_runner/jmeter_scripts). <br />
+Jmeter Report should be available at [http://localhost:3389/](http://localhost:3389/) <br />
 Volume should be deleted for jmeter to get new version of test plan after editing. Command for restart of tests with volume deletion:
 ```
 docker-compose down --volumes  && docker-compose up --build -d
