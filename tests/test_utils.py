@@ -20,8 +20,7 @@ def generate_uuid() -> str:
     return fake.uuid4()
 
 
-def get_random_birthday(api_client, check_successful_response):
+def get_random_birthday(api_client):
     get_response = api_client("GET")
-    check_successful_response(get_response)
     birthdays = get_response.json()["data"]
     return random.choice(birthdays)
