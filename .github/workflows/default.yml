@@ -19,7 +19,7 @@ jobs:
         
       - name: Set up Docker Compose
         run: |
-          docker-compose up --build -d
+          docker-compose up --build
           mkdir -p ./allure
           docker-compose cp allure_test_report:app/allure-results ./allure/allure-results
           docker-compose cp allure_test_report:app/allure-report ./allure/allure-report
