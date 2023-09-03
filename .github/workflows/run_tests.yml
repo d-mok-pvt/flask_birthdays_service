@@ -4,7 +4,6 @@ on:
   workflow_dispatch
 
 jobs:
-
   run-docker-compose:
     runs-on: ubuntu-latest
     permissions:
@@ -23,20 +22,12 @@ jobs:
         run: |
           docker-compose up --build -d
           sleep 60
-      
-      - name: Print allure files in container
-        run: |
-          docker-compose exec allure_test_report ls -R
 
       - name: Copy allure-results from container
         run: |
           mkdir allure
           docker-compose cp allure_test_report:app/allure-report allure/allure-report
           docker-compose cp allure_test_report:app/allure-results allure/allure-results
-      
-      - name: Print allure files
-        run: |
-          ls -R allure
       
       - name: Get Allure history
         uses: actions/checkout@v3
