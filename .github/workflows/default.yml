@@ -12,14 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - uses: KengoTODA/actions-setup-docker-compose@v1
-        with:
-          version: '2.14.2'
         
       - name: Set up Docker Compose
-        run: |
-          docker-compose up --build -d
+        uses: isbang/compose-action@v1.5.1
+        with:
+          up-flags: |
+            --build
+            -d
       
       - name: Copy allure-results from container
         run: |
