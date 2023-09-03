@@ -31,10 +31,7 @@ jobs:
       - name: Copy allure-results from container
         run: |
           docker-compose cp allure_test_report:app/allure-report allure-report
-      
-      - name: Print allure files
-        run: |
-          ls -R allure-report
+          docker-compose cp allure_test_report:app/allure-results allure-results
       
       - name: Get Allure history
         uses: actions/checkout@v3
@@ -49,6 +46,7 @@ jobs:
         if: always()
         id: allure-report
         with:
+          allure_results: allure-results
           allure_report: allure-report
           allure_history: allure-history
           keep_reports: 20
