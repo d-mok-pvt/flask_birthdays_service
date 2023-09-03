@@ -19,17 +19,13 @@ jobs:
         
       - name: Set up Docker Compose
         run: |
-          docker-compose up --build -d
-          mkdir -p ./allure
-          docker-compose cp test:tests/test-results ./allure/allure-results
-          ls -R allure
+          docker-compose cp test:tests/test-results allure-results
+          ls allure-results
           docker-compose down
       
       - name: Print allure files
         run: |
-          ls -R allure
-          ls -R allure/allure-results
-          ls -R allure/allure-report
+          ls allure-results
       
       - name: Get Allure history
         uses: actions/checkout@v3
@@ -42,17 +38,15 @@ jobs:
       - name: Create Allure report page
         uses: simple-elf/allure-report-action@master
         if: always()
-        id: allure-report
         with:
           allure_results: allure/allure-results
-          allure_report: allure/allure-report
           allure_history: allure-history
           keep_reports: 20
       
       - name: Deploy report to Github Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
+        uses: peaceiris/actions-gh-pages@v3
+        with:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
