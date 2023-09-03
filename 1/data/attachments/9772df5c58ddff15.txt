@@ -1,0 +1,1 @@
+curl -X PUT -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' -d '{"name": "Ashley Williams", "date": "2019-01-17"}' http://app:5000/api/birthdays/e8e70613-811b-4536-b0fb-b7ff3d4d85f1
