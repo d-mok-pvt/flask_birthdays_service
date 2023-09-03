@@ -18,7 +18,7 @@ jobs:
         with:
           up-flags: |
             --build
-            -d
+            --detach
       
       - name: Copy allure-results from container
         run: |
