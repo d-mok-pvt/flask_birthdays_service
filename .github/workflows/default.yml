@@ -22,6 +22,7 @@ jobs:
       - name: Set up Docker Compose
         run: |
           docker-compose up --build -d
+          sleep 30
       
       - name: Print allure files in container
         run: |
