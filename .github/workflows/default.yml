@@ -20,9 +20,14 @@ jobs:
       - name: Set up Docker Compose
         run: |
           docker-compose up --build -d
-          docker-compose cp allure_test_report:app/allure-results ./allure-results
-          docker-compose cp allure_test_report:app/allure-report ./allure-report
+          docker-compose cp allure_test_report:app/allure-results ./allure/allure-results
+          docker-compose cp allure_test_report:app/allure-report ./allure/allure-report
           docker-compose down
+      
+      - name: Print allure files
+        run: |
+          ls -la allure/allure-results
+          ls -la allure/allure-report
       
       - name: Get Allure history
         uses: actions/checkout@v3
@@ -37,8 +42,8 @@ jobs:
         if: always()
         id: allure-report
         with:
-          allure_results: allure-results
-          allure_report: allure-report
+          allure_results: allure/allure-results
+          allure_report: allure/allure-report
           allure_history: allure-history
           keep_reports: 20
       
