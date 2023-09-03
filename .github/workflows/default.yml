@@ -22,7 +22,6 @@ jobs:
       - name: Set up Docker Compose
         run: |
           docker-compose up --build -d
-          sleep 30
       
       - name: Print allure files in container
         run: |
@@ -30,7 +29,7 @@ jobs:
 
       - name: Copy allure-results from container
         run: |
-          docker-compose cp allure_test_report:allure-report allure-report
+          docker-compose cp allure_test_report:app/allure-report allure-report
       
       - name: Print allure files
         run: |
