@@ -23,6 +23,7 @@ jobs:
           mkdir -p ./allure
           docker-compose cp allure_test_report:app/allure-results ./allure/allure-results
           docker-compose cp allure_test_report:app/allure-report ./allure/allure-report
+          ls -R allure
           docker-compose down
       
       - name: Print allure files
