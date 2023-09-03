@@ -20,9 +20,10 @@ jobs:
       - name: Set up Docker Compose
         run: |
           docker-compose up --build -d
+      
+      - name: Copy allure-results from container
+        run: |
           docker-compose cp allure_test_report:app/allure-results allure-results
-          ls allure-results
-          docker-compose down
       
       - name: Print allure files
         run: |
