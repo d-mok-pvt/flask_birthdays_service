@@ -12,20 +12,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Install docker-compose
+        run: |
+          sudo curl -SL https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
         
       - name: Set up Docker Compose
-        uses: isbang/compose-action@v1.5.1
-        with:
-          up-flags: "--build --detach"
-      
+        run: |
+          docker-compose up --build -d
+
       - name: Copy allure-results from container
         run: |
-          docker ps
-          docker cp flask_birthdays_service-allure_test_report-1:app/allure-results allure-results
+          docker-compose cp allure_test_report:app/allure-results allure-results
       
       - name: Print allure files
         run: |
-          ls allure-results
+          ls -R allure-results
       
       - name: Get Allure history
         uses: actions/checkout@v3
