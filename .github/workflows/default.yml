@@ -19,7 +19,7 @@ jobs:
         
       - name: Set up Docker Compose
         run: |
-          docker-compose cp test:tests/test-results allure-results
+          docker-compose cp allure_test_report:app/allure-results allure-results
           ls allure-results
           docker-compose down
       
