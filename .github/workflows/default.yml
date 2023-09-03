@@ -27,6 +27,7 @@ jobs:
       
       - name: Print allure files
         run: |
+          ls -R allure
           ls -R allure/allure-results
           ls -R allure/allure-report
       
