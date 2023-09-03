@@ -24,6 +24,14 @@ jobs:
           docker-compose cp allure_test_report:app/allure-report ./allure-report
           docker-compose down
       
+      - name: Get Allure history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      
       - name: Create Allure report page
         uses: simple-elf/allure-report-action@master
         if: always()
