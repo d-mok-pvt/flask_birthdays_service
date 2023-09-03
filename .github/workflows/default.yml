@@ -22,11 +22,6 @@ jobs:
           docker-compose cp allure_test_report:app/allure-report ./allure-report
           docker-compose down
       
-      - name: print ls
-        run: |
-         ls -R ./allure-results
-         ls -R ./allure-report
-      
       - name: Test marketplace action
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -38,7 +33,7 @@ jobs:
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
-        env:
+        with:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
