@@ -21,7 +21,7 @@ jobs:
       - name: Copy allure-results from container
         run: |
           docker ps
-          docker cp birthdays_service-allure_test_report-1:app/allure-results allure-results
+          docker cp flask_birthdays_service-allure_test_report-1:app/allure-results allure-results
       
       - name: Print allure files
         run: |
