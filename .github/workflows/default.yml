@@ -21,7 +21,7 @@ jobs:
         run: |
           docker-compose up --build -d
           mkdir -p ./allure
-          docker-compose cp test:test-results ./allure/allure-results
+          docker-compose cp test:tests/test-results ./allure/allure-results
           ls -R allure
           docker-compose down
       
