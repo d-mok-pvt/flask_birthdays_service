@@ -27,8 +27,8 @@ jobs:
       
       - name: Print allure files
         run: |
-          ls -la allure/allure-results
-          ls -la allure/allure-report
+          ls -R allure/allure-results
+          ls -R allure/allure-report
       
       - name: Get Allure history
         uses: actions/checkout@v3
