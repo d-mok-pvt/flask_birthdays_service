@@ -16,9 +16,7 @@ jobs:
       - name: Set up Docker Compose
         uses: isbang/compose-action@v1.5.1
         with:
-          up-flags: |
-            --build
-            --detach
+          up-flags: "--build --detach"
       
       - name: Copy allure-results from container
         run: |
