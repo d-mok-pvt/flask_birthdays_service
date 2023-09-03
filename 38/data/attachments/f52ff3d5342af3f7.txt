@@ -1,0 +1,1 @@
+curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' -d '{"date": "1988-05-22"}' http://app:5000/api/birthdays
