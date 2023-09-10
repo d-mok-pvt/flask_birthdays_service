@@ -1,0 +1,1 @@
+curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' http://app:5000/api/birthdays/1a7381cf-fee6-4e88-96a8-41c91161cabf
