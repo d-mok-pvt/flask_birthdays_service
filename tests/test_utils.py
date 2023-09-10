@@ -1,5 +1,6 @@
 from faker import Faker
 import random
+import allure
 
 
 def generate_name() -> str:
@@ -20,6 +21,7 @@ def generate_uuid() -> str:
     return fake.uuid4()
 
 
+@allure.step("Get random birthday")
 def get_random_birthday(api_client):
     get_response = api_client("GET")
     birthdays = get_response.json()["data"]
