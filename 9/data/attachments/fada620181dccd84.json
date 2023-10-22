@@ -1,0 +1,11 @@
+{
+    "Server": "Werkzeug/2.2.3 Python/3.11.6",
+    "Date": "Sun, 22 Oct 2023 17:17:12 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "117",
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    "Expires": "0",
+    "Pragma": "no-cache",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close"
+}

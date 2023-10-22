@@ -1,0 +1,4 @@
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' http://app:5000/api/birthdays
+curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' http://app:5000/api/birthdays/279c8c5b-dc9e-4b4a-b9db-5433c6d38060
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' http://app:5000/api/birthdays
+curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.31.0' http://app:5000/api/birthdays/279c8c5b-dc9e-4b4a-b9db-5433c6d38060
