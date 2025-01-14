@@ -3,16 +3,22 @@ info:
   version: "1.0.0"
   title: Birthday management API
 servers:
-  - url: http://localhost:5000/
+  - url: http://localhost:5001/
     description: Development server
+security:
+  - basicAuth: []
 paths:
   /api/birthdays:
     get:
+      security:
+        - basicAuth: [ ]
       summary: Retrieve a list of all birthdays
       responses:
         '200':
           $ref: "#/components/responses/BirthdaysListResponse"
     post:
+      security:
+        - basicAuth: [ ]
       summary: Create a new birthday
       requestBody:
         required: true
@@ -27,6 +33,8 @@ paths:
           $ref: "#/components/responses/BadRequestResponse"
   /api/birthdays/{uuid}:
     get:
+      security:
+        - basicAuth: [ ]
       summary: Get a birthday record by uuid
       parameters:
         - name: uuid
@@ -42,6 +50,8 @@ paths:
         '404':
           $ref: "#/components/responses/ResourceNotFoundResponse"
     put:
+      security:
+        - basicAuth: [ ]
       summary: Updates a birthday record by uuid
       parameters:
         - name: uuid
@@ -65,6 +75,8 @@ paths:
         '400':
           $ref: "#/components/responses/BadRequestResponse"
     delete:
+      security:
+        - basicAuth: [ ]
       summary: Delete a birthday record by uuid
       parameters:
         - name: uuid
@@ -80,6 +92,10 @@ paths:
         '404':
           $ref: "#/components/responses/ResourceNotFoundResponse"
 components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
   schemas:
     BirthdayResponseObject:
       type: object

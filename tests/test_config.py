@@ -1,9 +1,10 @@
 import os
 
-FRONT_URL = 'http://app:5000'
-API_URL = FRONT_URL + '/api/birthdays'
-SWAGGER_UI_URL = FRONT_URL + '/swagger'
-SWAGGER_JSON_URL = FRONT_URL + '/static/swagger.json'
+URL = 'http://app:5001'
+BIRTHDAYS_API_URL = URL + '/api/birthdays'
+USERS_API_URL = URL + '/api/internal/admin/users'
+SWAGGER_UI_URL = URL + '/swagger'
+SWAGGER_JSON_URL = URL + '/static/swagger.json'
 
 # DATABASE = "birthdays.db"
 app_dir = os.path.dirname(__file__)

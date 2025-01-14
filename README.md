@@ -11,8 +11,9 @@ Before you can use this project, you will need to have Docker and Docker Compose
 ## Usage
 
 ### By default, running service endpoints are: 
-*WEB UI*: [http://localhost:5000/](http://localhost:5000/) \
-*SWAGGER UI*: [http://localhost:5000/swagger/](http://localhost:5000/swagger/) \
+*WEB UI*: [http://localhost:5001/](http://localhost:5001/) \
+*Birthday service SWAGGER UI*: [http://localhost:5001/api/swagger-ui](http://localhost:5001/api/swagger-ui) \
+*User management SWAGGER UI*: [http://localhost:5001/api/internal/admin/](http://localhost:5001/api/internal/admin/) \
 *Allure Report*: [http://localhost:8000/](http://localhost:8000/) \
 *Jmeter Report*: [http://localhost:3389/](http://localhost:3389/)
 
