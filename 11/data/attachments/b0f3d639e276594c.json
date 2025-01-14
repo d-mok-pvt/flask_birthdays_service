@@ -1,0 +1,23 @@
+{
+    "status_code": 200,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Tue, 14 Jan 2025 15:39:55 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "167",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "data": {
+            "date": "1994-05-04",
+            "name": "Ronnie Werner",
+            "userid": "46d393b9-6852-443b-b05d-3d88850fc22d",
+            "uuid": "f516d15b-24d1-4e5d-a37a-6247ae370ecd"
+        },
+        "status": "success"
+    }
+}

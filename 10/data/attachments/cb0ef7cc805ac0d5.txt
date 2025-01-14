@@ -1,1 +1,0 @@
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' http://app:5000/api/birthdays/45ab7473-99cf-4ed0-8d51-405ee8668e41

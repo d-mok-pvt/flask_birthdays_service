@@ -1,0 +1,2 @@
+INFO     root:test_utils.py:49 Created user {'username': 'Jacob Williams', 'password': 'G4kQ^Imh_GOR'}
+INFO     root:test_utils.py:50 {'data': {'userid': '69f8c484-0a2c-4cc5-8b31-4c7fc937bf3e'}, 'status': 'success'}

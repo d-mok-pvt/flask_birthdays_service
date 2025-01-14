@@ -1,0 +1,20 @@
+{
+    "status_code": 200,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Tue, 14 Jan 2025 15:39:55 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "50",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "data": {
+            "date": "1985-06-17"
+        },
+        "status": "success"
+    }
+}

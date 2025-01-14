@@ -1,3 +1,0 @@
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' http://app:5000/api/birthdays
-curl -X PUT -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' -d '{"name": "Barbara Gutierrez", "date": "1975-03-04"}' http://app:5000/api/birthdays/9da5980d-04c8-486a-843f-6007ee176429
-curl -X GET -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' http://app:5000/api/birthdays/9da5980d-04c8-486a-843f-6007ee176429

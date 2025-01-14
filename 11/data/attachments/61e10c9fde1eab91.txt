@@ -1,0 +1,2 @@
+INFO:root:Created user {'username': 'Christian Bennett', 'password': '$_YslP#p49O*'}
+INFO:root:{'data': {'userid': 'c30e2ca7-3dda-42bd-b17b-f131f4fd4a54'}, 'status': 'success'}

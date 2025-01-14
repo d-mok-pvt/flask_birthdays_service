@@ -1,0 +1,22 @@
+{
+    "status_code": 201,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Tue, 14 Jan 2025 15:39:54 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "122",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "data": {
+            "date": "2015-12-28",
+            "name": "Phillip Friedman",
+            "uuid": "8c05513a-162f-4135-ae9f-f46df5140334"
+        },
+        "status": "success"
+    }
+}

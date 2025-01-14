@@ -1,0 +1,18 @@
+{
+    "status_code": 400,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Tue, 14 Jan 2025 15:39:56 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "59",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "message": "New password is required",
+        "status": "error"
+    }
+}

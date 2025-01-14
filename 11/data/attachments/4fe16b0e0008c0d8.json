@@ -1,0 +1,19 @@
+{
+    "status_code": 400,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Tue, 14 Jan 2025 15:39:55 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "113",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "data": "At least one of 'name' or 'date' is required.",
+        "message": "Invalid request parameters",
+        "status": "error"
+    }
+}
