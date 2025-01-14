@@ -10,6 +10,8 @@ MarkupSafe==2.1.2
 pytz==2022.7.1
 six==1.16.0
 Werkzeug==2.2.3
-flask-cors
-Flask-WTF
-WTForms
+flask-cors==4.0.1
+Flask-WTF==1.2.1
+WTForms==3.1.2
+flask-restx==1.3.0
+flask-httpauth==4.8.0

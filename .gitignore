@@ -11,3 +11,6 @@ __pycache__/
 .hypothesis/
 test-reports/
 data/
+venv/
+idea/
+.idea/

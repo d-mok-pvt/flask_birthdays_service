@@ -2,3 +2,4 @@ pytest
 Faker
 requests
 allure-pytest
+requests_to_curl

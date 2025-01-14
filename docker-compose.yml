@@ -1,14 +1,14 @@
-version: '0.1'
+version: '3.6'
 services:
   app:
     build: ./app
     ports:
-      - "5000:5000"
+      - "5001:5001"
     volumes:
       - birthdays_data:/data
     command: python ./app.py
-    networks: 
-      - my_network
+    networks:
+      - birthdays_service_network
   test:
     build: ./tests
     depends_on:
@@ -16,25 +16,27 @@ services:
     volumes:
       - birthdays_data:/data
       - test-results:/tests/test-results
-    command: sh -c "rm -rf /tests/test-results/* && pytest --alluredir=/tests/test-results"
+    command: sh -c "rm -rf /tests/test-results/* && pytest --alluredir=/tests/test-results --continue-on-collection-errors --maxfail=1000 || true"
     networks:
-      - my_network
+      - birthdays_service_network
   allure_test_report:
     build: ./allure-reporter
     depends_on:
-      - test
+      test:
+        condition: service_completed_successfully
     volumes:
       - test-results:/app/allure-results
     command: sh -c "allure generate /app/allure-results --clean && allure serve /app/allure-results --port 80 --host 0.0.0.0"
     ports:
       - "8000:80"
     networks:
-      - my_network
+      - birthdays_service_network
 
 volumes:
   birthdays_data:
   test-results:
 
 networks:
-  my_network:
+  birthdays_service_network:
     driver: bridge
+    name: birthdays_service_network
