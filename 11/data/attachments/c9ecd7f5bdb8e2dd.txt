@@ -1,1 +1,0 @@
-curl -X DELETE -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Authorization: Basic UGFpZ2UgSW5ncmFtOjMoVXZxU25UJUdZag==' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' http://app:5001/api/internal/admin/users/f90846e4-c32f-42d8-ba30-71bd2c9be973

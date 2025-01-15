@@ -1,0 +1,22 @@
+{
+    "status_code": 201,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Wed, 15 Jan 2025 10:41:43 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "119",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "data": {
+            "date": "1996-12-26",
+            "name": "Austin Miller",
+            "uuid": "29664ba0-ef93-41be-9513-d610abe5d899"
+        },
+        "status": "success"
+    }
+}

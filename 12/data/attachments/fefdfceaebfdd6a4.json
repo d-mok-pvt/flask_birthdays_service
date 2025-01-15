@@ -1,0 +1,23 @@
+{
+    "status_code": 200,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Wed, 15 Jan 2025 10:41:42 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "166",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "data": {
+            "date": "2023-01-03",
+            "name": "Jesse Fisher",
+            "userid": "085ced4e-e00d-4307-a815-3dae7e6b228b",
+            "uuid": "82754803-c14b-4d1c-b404-ad2b01031a98"
+        },
+        "status": "success"
+    }
+}

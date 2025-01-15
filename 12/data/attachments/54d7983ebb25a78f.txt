@@ -1,0 +1,1 @@
+curl -X PUT -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Authorization: Basic RGFycnlsIFNhbmRlcnM6KlYzeDUxVW8jSzlE' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' -d '{"new_password": "o^N7SGc!X(1h"}' http://app:5001/api/internal/admin/users/22b4a53d-0fff-433e-80fc-cecda1379482/password

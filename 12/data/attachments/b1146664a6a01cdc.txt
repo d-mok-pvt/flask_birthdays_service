@@ -1,0 +1,2 @@
+INFO:root:Created user {'username': 'Daniel Lawrence', 'password': '+jNFpq+QWx6a'}
+INFO:root:{'data': {'userid': '646afa4e-4a62-448c-acf7-40e4ec35f404'}, 'status': 'success'}

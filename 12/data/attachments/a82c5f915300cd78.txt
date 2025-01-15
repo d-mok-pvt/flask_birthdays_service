@@ -1,0 +1,2 @@
+INFO     root:test_utils.py:49 Created user {'username': 'John Case', 'password': ')@nNycp2)8nw'}
+INFO     root:test_utils.py:50 {'data': {'userid': '11b13d55-0a98-40e0-b6b6-de14c4d27299'}, 'status': 'success'}

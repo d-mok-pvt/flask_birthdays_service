@@ -1,0 +1,20 @@
+{
+    "status_code": 200,
+    "headers": {
+        "Server": "Werkzeug/2.2.3 Python/3.11.11",
+        "Date": "Wed, 15 Jan 2025 10:41:40 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "76",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Expires": "0",
+        "Pragma": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "close"
+    },
+    "body": {
+        "data": {
+            "uuid": "4a9f4d86-5ea7-4a9f-b27e-19fd7b7eb4bd"
+        },
+        "status": "success"
+    }
+}

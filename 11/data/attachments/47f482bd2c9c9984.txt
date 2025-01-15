@@ -1,1 +1,0 @@
-curl -X POST -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Authorization: Basic UGFpZ2UgSW5ncmFtOjMoVXZxU25UJUdZag==' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' -d '{"username": "Sheila Rosales"}' http://app:5001/api/internal/admin/users/user

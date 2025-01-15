@@ -1,1 +1,0 @@
-curl -X PUT -H 'Accept: */*' -H 'Accept-Encoding: gzip, deflate' -H 'Authorization: Basic UGFpZ2UgSW5ncmFtOjMoVXZxU25UJUdZag==' -H 'Connection: keep-alive' -H 'Content-Type: application/json' -H 'User-Agent: python-requests/2.32.3' -d '{"name": "Christine Torres"}' http://app:5001/api/birthdays/e2a7e737-88d3-4a78-b720-b11fda1fd7f5

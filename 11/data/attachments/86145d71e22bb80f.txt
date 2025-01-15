@@ -1,2 +1,0 @@
-INFO     root:test_utils.py:49 Created user {'username': 'Christian Bennett', 'password': '$_YslP#p49O*'}
-INFO     root:test_utils.py:50 {'data': {'userid': 'c30e2ca7-3dda-42bd-b17b-f131f4fd4a54'}, 'status': 'success'}
